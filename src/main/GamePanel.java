@@ -14,6 +14,9 @@ import java.awt.event.KeyListener;
 public class GamePanel extends JPanel {
     int xDelta=100;
     int yDelta=100;
+    private int frames;
+    private long lastCheck = 0;
+
     private MouseInputs mouseInputs;
     public GamePanel(){
         mouseInputs=new MouseInputs(this);
@@ -38,7 +41,7 @@ public class GamePanel extends JPanel {
     public void setRectPos(int x,int y){
         this.xDelta = x;
         this.yDelta = y;
-        repaint();
+
 
     }
 
@@ -56,5 +59,23 @@ public class GamePanel extends JPanel {
 
 
         g.fillRect ( xDelta, yDelta,200,50);
+
+
+        frames++;
+
+        /**
+         * se è passato un secondo dall'ultimo fps check,facciamo un nuovo check
+         * salviamo il newfps check come lastFps check e ripetiamo
+         */
+        if(System.currentTimeMillis() - lastCheck >= 1000){
+            lastCheck = System.currentTimeMillis();
+            System.out.println("FPS: " + frames);
+            frames = 0;
+        }
+
+        /**
+         * metodo che richiama paint
+          */
+        repaint();
     }
 }
