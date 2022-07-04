@@ -15,7 +15,7 @@ import java.util.Random;
 public class GamePanel extends JPanel {
     private float xDelta=100;
     private float yDelta=100;
-    private float xDir = 0.003f, yDir = 0.003f;
+    private float xDir = 0.003f, yDir = 1f;
     private int frames;
     private long lastCheck = 0;
     private Color color = new Color(150,20,90);
@@ -83,8 +83,9 @@ public class GamePanel extends JPanel {
 
         /**
          * metodo che richiama paint
+         * repaint();
           */
-        repaint();
+
     }
 
     private void updateRectangle() {
