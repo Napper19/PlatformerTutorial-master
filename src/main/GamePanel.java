@@ -69,17 +69,7 @@ public class GamePanel extends JPanel {
 
 
 
-        frames++;
 
-        /**
-         * se è passato un secondo dall'ultimo fps check,facciamo un nuovo check
-         * salviamo il newfps check come lastFps check e ripetiamo
-         */
-        if(System.currentTimeMillis() - lastCheck >= 1000){
-            lastCheck = System.currentTimeMillis();
-            System.out.println("FPS: " + frames);
-            frames = 0;
-        }
 
         /**
          * metodo che richiama paint
