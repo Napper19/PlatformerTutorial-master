@@ -25,10 +25,19 @@ public class GamePanel extends JPanel {
     public GamePanel(){
         random = new Random();
         mouseInputs=new MouseInputs(this);
+        setPanelSize();
        addKeyListener(new KeyboardInputs(this));
        addMouseListener(mouseInputs);
        addMouseMotionListener(mouseInputs);
 
+    }
+
+    /**
+     * total size will be a bit larger than the size set in jpanel
+     */
+    private void setPanelSize() {
+        Dimension size = new Dimension(1280,800);
+        setPreferredSize(size);
     }
 
     public void changeXDelta(int value){
